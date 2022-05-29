@@ -2,7 +2,7 @@ package com.anas.jdosattacker;
 
 import com.anas.jdosattacker.args.ArgumentsProcessor;
 import com.anas.jdosattacker.request.Requester;
-import com.anas.jdosattacker.tui.MainTUI;
+import com.anas.jdosattacker.tui.GetData;
 
 import java.io.IOException;
 
@@ -12,9 +12,15 @@ public class MainController implements Runnable {
 
     public MainController(String[] args) {
         new ArgumentsProcessor().process(args);
-//        createThreads();
-
-        // createThreads();
+        if (this.hasEmptyFields()) {
+            try {
+                new GetData();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+        }
+        createThreads();
     }
 
     public static void setThreadsNum(int threads) {

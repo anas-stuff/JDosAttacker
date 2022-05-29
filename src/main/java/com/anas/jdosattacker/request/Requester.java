@@ -1,10 +1,5 @@
 package com.anas.jdosattacker.request;
 
-import com.anas.jdosattacker.Main;
-import com.anas.jdosattacker.MainController;
-import com.anas.jdosattacker.tui.LoggItem;
-import com.anas.jdosattacker.tui.MainTUI;
-
 import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -32,14 +27,14 @@ public class Requester implements Runnable {
             connection.setConnectTimeout(CONNECT_TIMEOUT);
             connection.connect();
             int responseCode = connection.getResponseCode();
-            Main.mainTUI.log(String.format("%15s | %16s |  %20s\n", responseCode +
+            System.out.printf("%15s | %16s |  %20s\n", responseCode +
                     (responseCode == HttpsURLConnection.HTTP_OK ? " [OK]" : " [FAIL]"),
                     Thread.currentThread().getName(),
-                    System.currentTimeMillis() + "ms"));
+                    System.currentTimeMillis() + "ms");
         } catch (IOException e) {
-            Main.mainTUI.log(String.format("%15s | %16s |  %20s \n", "[FAIL]",
+            System.out.printf("%15s | %16s |  %20s \n", "[FAIL]",
                     Thread.currentThread().getName(),
-                    System.currentTimeMillis() + "ms"));
+                    System.currentTimeMillis() + "ms");
         }
     }
 

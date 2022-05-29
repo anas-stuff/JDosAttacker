@@ -3,8 +3,13 @@ package com.anas.jdosattacker.tui;
 import com.anas.jdosattacker.MainController;
 import com.anas.jdosattacker.request.Requester;
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.gui2.dialogs.MessageDialog;
+import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+
+import java.io.IOException;
 
 public class GetData extends BasicWindow {
     private Panel panel;
@@ -15,8 +20,10 @@ public class GetData extends BasicWindow {
             numberOfRequestsTextBox;
     private ComboBox<String> requestMethodComboBox;
     private Button button;
+    private Screen screen;
+    private MultiWindowTextGUI textGUI;
 
-    public GetData() {
+    public GetData() throws IOException {
         init();
         addButtonListener();
         addComponentsToPanel();
@@ -24,7 +31,11 @@ public class GetData extends BasicWindow {
         setupComponentsPreferredSize();
         // add panel to window
         super.setComponent(panel);
-
+        screen.doResizeIfNecessary();
+        screen.startScreen();
+        textGUI.addWindowAndWait(this);
+        super.close();
+        screen.stopScreen();
     }
 
     private void setupComponentsPreferredSize() {
@@ -76,7 +87,7 @@ public class GetData extends BasicWindow {
         panel.addComponent(button);
     }
 
-    private void init() {
+    private void init() throws IOException {
         panel = new Panel();
         panel.setLayoutManager(new GridLayout(2));
 
@@ -87,5 +98,9 @@ public class GetData extends BasicWindow {
         numberOfRequestsTextBox = new TextBox(Requester.getReqNumber() + "");
         requestMethodComboBox = new ComboBox<>();
         button = new Button("Start");
+
+        screen = new DefaultTerminalFactory().createScreen();
+        textGUI = new MultiWindowTextGUI(screen, new DefaultWindowManager(),
+                new EmptySpace(TextColor.ANSI.BLUE));
     }
 }
