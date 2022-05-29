@@ -47,6 +47,8 @@ java -jar JDosAttacker.jar
 - Without arguments, the program will show TUI like this:
 ![TUI](./Screenshots/TUI.png)
 
+> This program was created for the purpose of study only, and I am not responsible for any use outside this purpose
+
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
 
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
