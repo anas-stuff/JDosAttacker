@@ -68,14 +68,14 @@ public class Requester implements Runnable {
         return reqNumber;
     }
 
-    public static void setReqNumber(int reqNumber) throws FieldException {
+    public static void setReqNumber(final int reqNumber) throws FieldException {
         if (reqNumber < 1) {
             throw new FieldException("Number of requests must be greater than 0");
         }
         Requester.reqNumber = reqNumber;
     }
 
-    public static void setReqNumber(String reqNumber) throws FieldException {
+    public static void setReqNumber(final String reqNumber) throws FieldException {
         try {
             int numberOfRequests = Integer.parseInt(reqNumber);
             Requester.setReqNumber(numberOfRequests);
@@ -88,7 +88,7 @@ public class Requester implements Runnable {
         return url;
     }
 
-    public static void setUrl(String url) throws FieldException {
+    public static void setUrl(final String url) throws FieldException {
         if (url == null || url.isBlank()) {
             throw new FieldException("URL cannot be empty");
         }
@@ -102,7 +102,7 @@ public class Requester implements Runnable {
         return userAgent;
     }
 
-    public static void setUserAgent(String userAgent) {
+    public static void setUserAgent(final String userAgent) {
         Requester.userAgent = userAgent;
     }
 
@@ -110,25 +110,26 @@ public class Requester implements Runnable {
         return requestMethod;
     }
 
-    public static void setRequestMethod(String requestMethod) {
+    public static void setRequestMethod(final String requestMethod) {
         if (requestMethod == null || requestMethod.isBlank()) {
-            requestMethod = "GET";
+            Requester.requestMethod = "GET";
+        } else {
+            Requester.requestMethod = requestMethod;
         }
-        Requester.requestMethod = requestMethod;
     }
 
     public static int getConnectTimeout() {
         return connectTimeout;
     }
 
-    public static void setConnectTimeout(int connectTimeout) throws FieldException {
+    public static void setConnectTimeout(final int connectTimeout) throws FieldException {
         if (connectTimeout < 1) {
             throw new FieldException("Timeout must be greater than 0");
         }
         Requester.connectTimeout = connectTimeout;
     }
 
-    public static void setConnectTimeout(String connectTimeout) throws FieldException {
+    public static void setConnectTimeout(final String connectTimeout) throws FieldException {
         try {
             int timeout = Integer.parseInt(connectTimeout);
             Requester.setConnectTimeout(timeout);
