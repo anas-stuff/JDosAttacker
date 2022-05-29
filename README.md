@@ -1,7 +1,21 @@
 # A Simple dos attack program implementation using java 😉
-![Scrrshot](./Screenshots/jdosattack.gif)
+
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
+
 
 > This is a simple DOS attack program, and it is smart enough not to change your IP during the attack 😆, so it is recommended to use a separate tool for disguise or you will find the FPI at your door 🙂
+
+![Scrrshot](./Screenshots/jdosattack.gif)
+
 ## Command Line Arguments (All are optional)
 
 | Argument            | Value                    | Description                                  |
@@ -29,5 +43,7 @@ java -jar JDosAttacker.jar
 ```
 - Without arguments, the program will show TUI like this:
 ![TUI](./Screenshots/TUI.png)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
 
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
