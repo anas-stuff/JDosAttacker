@@ -1,5 +1,6 @@
 package com.anas.jdosattacker.tui;
 
+import com.anas.jdosattacker.FieldException;
 import com.anas.jdosattacker.MainController;
 import com.anas.jdosattacker.request.Requester;
 import com.googlecode.lanterna.TerminalSize;
@@ -58,14 +59,18 @@ public class GetData extends BasicWindow {
                 // If not, show error message
                 MessageDialog.showMessageDialog(getTextGUI(), "Error", "Please fill all fields");
             } else {
-                // If yes, close window and start attack
-                close();
-                Requester.url = urlTextBox.getText();
-                Requester.setReqNumber(Integer.parseInt(numberOfRequestsTextBox.getText()));
-                Requester.USER_AGENT = userAgentTextBox.getText();
-                Requester.REQUEST_METHOD = requestMethodComboBox.getSelectedItem();
-                Requester.CONNECT_TIMEOUT = Integer.parseInt(connectionTimeoutTextBox.getText());
-                MainController.setThreadsNum(Integer.parseInt(threadsTextBox.getText()));
+                try {
+                    Requester.setReqNumber(numberOfRequestsTextBox.getText());
+                    MainController.setThreadsNum(threadsTextBox.getText());
+                    Requester.setConnectTimeout(connectionTimeoutTextBox.getText());
+                    Requester.setUrl(urlTextBox.getText());
+                    Requester.setUserAgent(userAgentTextBox.getText());
+                    Requester.setRequestMethod(requestMethodComboBox.getSelectedItem());
+                    // If yes, close window and start attack
+                    close();
+                } catch (FieldException e) {
+                    MessageDialog.showMessageDialog(getTextGUI(), "Error", e.getMessage());
+                }
             }
         });
     }
@@ -91,10 +96,10 @@ public class GetData extends BasicWindow {
         panel = new Panel();
         panel.setLayoutManager(new GridLayout(2));
 
-        urlTextBox = new TextBox(Requester.url);
-        userAgentTextBox = new TextBox(Requester.USER_AGENT);
+        urlTextBox = new TextBox(Requester.getUrl());
+        userAgentTextBox = new TextBox(Requester.getUserAgent());
         threadsTextBox = new TextBox();
-        connectionTimeoutTextBox = new TextBox(Requester.CONNECT_TIMEOUT + "");
+        connectionTimeoutTextBox = new TextBox(Requester.getConnectTimeout() + "");
         numberOfRequestsTextBox = new TextBox(Requester.getReqNumber() + "");
         requestMethodComboBox = new ComboBox<>();
         button = new Button("Start");

@@ -36,26 +36,23 @@ public class ArgumentsProcessor {
                 printHelp();
             } else if (commandLine.hasOption("version")) {
                 printVersion();
-            } else if (commandLine.hasOption("url")) {
-                Requester.url = commandLine.getOptionValue("url");
-            }
-            if (commandLine.hasOption("threads")) {
+            } else if (commandLine.hasOption("url"))
+                Requester.setUrl(commandLine.getOptionValue("url"));
+
+            if (commandLine.hasOption("threads"))
                 MainController.setThreadsNum(Integer.parseInt(commandLine.getOptionValue("threads")));
-            }
-            if (commandLine.hasOption("number")) {
+            if (commandLine.hasOption("number"))
                 Requester.setReqNumber(Integer.parseInt(commandLine.getOptionValue("number")));
-            }
-            if (commandLine.hasOption("useragent")) {
-                Requester.USER_AGENT = commandLine.getOptionValue("useragent");
-            }
-            if (commandLine.hasOption("requestMethod")) {
-                Requester.REQUEST_METHOD = commandLine.getOptionValue("requestMethod");
-            }
-            if (commandLine.hasOption("connectTimeout")) {
-                Requester.CONNECT_TIMEOUT = Integer.parseInt(commandLine.getOptionValue("connectTimeout"));
-            }
+            if (commandLine.hasOption("connectTimeout"))
+                Requester.setConnectTimeout(Integer.parseInt(commandLine.getOptionValue("connectTimeout")));
+            if (commandLine.hasOption("useragent"))
+                Requester.setUserAgent(commandLine.getOptionValue("useragent"));
+            if (commandLine.hasOption("requestMethod"))
+                Requester.setRequestMethod(commandLine.getOptionValue("requestMethod"));
+
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
+            printHelp();
             System.exit(1);
         }
     }
@@ -67,6 +64,5 @@ public class ArgumentsProcessor {
 
     private void printHelp() {
         new HelpFormatter().printHelp("java -jar jdosattacker.jar -u <URL>", options);
-        System.exit(0);
     }
 }
