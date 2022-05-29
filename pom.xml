@@ -6,7 +6,16 @@
 
     <groupId>com.anas.jdosattacker</groupId>
     <artifactId>JDosAttacker</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
+    <description>A Simple dos attack program implementation using java</description>
+
+    <licenses>
+        <license>
+            <name>Mozilla Public License 2.0</name>
+            <url>http://www.mozilla.org/MPL/2.0/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <dependencies>
         <dependency>
