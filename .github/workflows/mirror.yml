@@ -2,7 +2,7 @@
 name: Mirror repo
 on: [push]
 
-jobs: 
+jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
