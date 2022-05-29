@@ -1,5 +1,6 @@
 # A Simple dos attack program implementation using java 😉
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1993d62ce2c4e4d815d688c20abaa81)](https://app.codacy.com/gh/Anas-Elgarhy/JDosAttacker?utm_source=github.com&utm_medium=referral&utm_content=Anas-Elgarhy/JDosAttacker&utm_campaign=Badge_Grade_Settings)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
