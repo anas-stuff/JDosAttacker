@@ -16,6 +16,9 @@
 
 ![Scrrshot](./Screenshots/jdosattack.gif)
 
+- Requirements:
+    - jdk-18 or higher
+
 ## Command Line Arguments (All are optional)
 
 | Argument            | Value                    | Description                                  |
