@@ -14,7 +14,7 @@
 
 > This is a simple DOS attack program, and it is smart enough not to change your IP during the attack 😆, so it is recommended to use a separate tool for disguise or you will find the FPI at your door 🙂
 
-![Scrrshot](./Screenshots/jdosattack.gif)
+![Screenshot](./Screenshots/jdosattack.gif)
 
 - Requirements:
     - jdk-18 or higher
