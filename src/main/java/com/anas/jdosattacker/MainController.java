@@ -57,6 +57,6 @@ public class MainController {
     }
 
     public boolean hasEmptyFields() {
-        return Requester.hasRequmentEmptyFields() || threadsNumber == 0;
+        return Requester.hasRequirementEmptyFields() || threadsNumber == 0;
     }
 }

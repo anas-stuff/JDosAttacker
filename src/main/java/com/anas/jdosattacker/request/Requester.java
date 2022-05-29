@@ -9,14 +9,22 @@ import java.net.URL;
 
 public class Requester implements Runnable {
     private static int connectTimeout = 5000;
-    private static String userAgent =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36",
-            requestMethod = "GET";
-    private static String url = "";
+    private static String userAgent,
+            requestMethod;
+    private static String url;
     private static int reqNumber;
 
-    public static boolean hasRequmentEmptyFields() {
-        return Requester.url.isBlank() ||
+    // Initialize the static variables
+    static {
+        userAgent = """
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+             Chrome/60.0.3112.113 Safari/537.36
+             """.replaceAll("\n", "");
+        setRequestMethod(null); // null means GET
+    }
+
+    public static boolean hasRequirementEmptyFields() {
+        return (Requester.url == null || Requester.url.isBlank()) ||
                 Requester.userAgent.isBlank() ||
                 Requester.requestMethod.isBlank() ||
                 Requester.connectTimeout == 0 ||
@@ -81,7 +89,7 @@ public class Requester implements Runnable {
     }
 
     public static void setUrl(String url) throws FieldException {
-        if (url.isBlank()) {
+        if (url == null || url.isBlank()) {
             throw new FieldException("URL cannot be empty");
         }
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
