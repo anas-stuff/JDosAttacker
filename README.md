@@ -10,7 +10,8 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JDosAttacker&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
-
+[![CodeFactor](https://www.codefactor.io/repository/github/anas-elgarhy/jdosattacker/badge)](https://www.codefactor.io/repository/github/anas-elgarhy/jdosattacker)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d8a257ee2ffb42a58afbf0a1754b4cc4)](https://www.codacy.com/gh/Anas-Elgarhy/JDosAttacker/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Anas-Elgarhy/JDosAttacker&amp;utm_campaign=Badge_Grade)
 
 > This is a simple DOS attack program, and it is smart enough not to change your IP during the attack 😆, so it is recommended to use a separate tool for disguise or you will find the FPI at your door 🙂
 
