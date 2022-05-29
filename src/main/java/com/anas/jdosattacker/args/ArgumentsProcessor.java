@@ -17,7 +17,7 @@ public class ArgumentsProcessor {
         options.addOption("h", "help", false, "Print this help");
         options.addOption("v", "version", false, "Print version");
         options.addOption("u", "url", true, "URL to attack");
-        options.addOption("t", "threads", true, "Number of threads to use (default: 100)");
+        options.addOption("t", "threads", true, "Number of threads to use");
         options.addOption("n", "number", true, "Number of requests to send from each thread");
         options.addOption("useragent", true, "User-Agent to use");
         options.addOption("requestMethod", true, "Request method to use (default: GET)");
@@ -60,7 +60,7 @@ public class ArgumentsProcessor {
     }
 
     private void printVersion() {
-        System.out.println("Version: " + MainController.VERSION);
+        System.out.println("Version: " + MainController.version);
         System.exit(0);
     }
 
