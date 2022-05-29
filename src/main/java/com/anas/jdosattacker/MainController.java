@@ -33,8 +33,20 @@ public class MainController {
         }
     }
 
-    public static void setThreadsNum(int threads) {
-        threadsNumber = threads;
+    public static void setThreadsNum(int threadsNum) throws FieldException {
+        if (threadsNum < 1) {
+            throw new FieldException("Number of threads must be greater than 0");
+        }
+        threadsNumber = threadsNum;
+    }
+
+    public static void setThreadsNum(String threadsNumber) throws FieldException {
+        try {
+            int threadsNum = Integer.parseInt(threadsNumber);
+            MainController.setThreadsNum(threadsNum);
+        } catch (NumberFormatException e) {
+            throw new FieldException("Number of threads must be a number");
+        }
     }
 
     public void createThreads() {
@@ -45,11 +57,6 @@ public class MainController {
     }
 
     public boolean hasEmptyFields() {
-        return Requester.url.isBlank() ||
-                Requester.USER_AGENT.isBlank() ||
-                Requester.REQUEST_METHOD.isBlank() ||
-                Requester.CONNECT_TIMEOUT == 0 ||
-                Requester.getReqNumber() == 0 ||
-                threadsNumber == 0;
+        return Requester.hasRequirementEmptyFields() || threadsNumber == 0;
     }
 }
