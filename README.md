@@ -47,6 +47,12 @@ java -jar JDosAttacker.jar
 - Without arguments, the program will show TUI like this:
 ![TUI](./Screenshots/TUI.png)
 
+### Also, available in:
+- [GitLab](https://gitlab.com/Anas-Elgarhy/JDosAttacker)
+- [BitBucket](https://bitbucket.org/anas-elgarhy/jdosattacker)
+- [Codeberg](https://codeberg.org/anas-elgarhy/JDosAttacker)
+
+
 > This program was created for the purpose of study only, and I am not responsible for any use outside this purpose
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JDosAttacker)
