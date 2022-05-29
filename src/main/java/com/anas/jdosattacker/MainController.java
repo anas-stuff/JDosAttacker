@@ -5,10 +5,12 @@ import com.anas.jdosattacker.request.Requester;
 import com.anas.jdosattacker.tui.GetData;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class MainController implements Runnable {
+public class MainController {
     public static final String VERSION = "1.0.0";
     private static int THREADS = 100;
+    private final ArrayList<Thread> threads;
 
     public MainController(String[] args) {
         new ArgumentsProcessor().process(args);
@@ -20,7 +22,15 @@ public class MainController implements Runnable {
                 System.exit(1);
             }
         }
+        this.threads = new ArrayList<>();
         createThreads();
+        startThreads();
+    }
+
+    private void startThreads() {
+        for (Thread thread : threads) {
+            thread.start();
+        }
     }
 
     public static void setThreadsNum(int threads) {
@@ -29,9 +39,8 @@ public class MainController implements Runnable {
 
     public void createThreads() {
         for (int i = 0; i < THREADS; i++) {
-           Thread thread = new Thread(new Requester());
-           thread.setName("Requester " + (i + 1));
-           thread.start();
+            threads.add(new Thread(new Requester()));
+           threads.get(i).setName("Requester " + (i + 1));
         }
     }
 
@@ -42,10 +51,5 @@ public class MainController implements Runnable {
                 Requester.CONNECT_TIMEOUT == 0 ||
                 Requester.getReqNumber() == 0 ||
                 THREADS == 0;
-    }
-
-    @Override
-    public void run() {
-        createThreads();
     }
 }
