@@ -18,7 +18,7 @@ public class MainController {
             try {
                 new GetData();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("Error: " + e.getMessage());
                 System.exit(1);
             }
         }

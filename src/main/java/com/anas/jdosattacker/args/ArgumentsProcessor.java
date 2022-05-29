@@ -55,7 +55,8 @@ public class ArgumentsProcessor {
                 Requester.CONNECT_TIMEOUT = Integer.parseInt(commandLine.getOptionValue("connectTimeout"));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
+            System.exit(1);
         }
     }
 
