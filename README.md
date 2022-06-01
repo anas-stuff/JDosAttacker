@@ -17,8 +17,10 @@
 
 ![Screenshot](./Screenshots/jdosattack.gif)
 
-- Requirements:
-    - jdk-18 or higher
+- Requirements for development:
+    - jdk-17 or higher
+    - Maven
+    - IntelliJ IDEA (not required but recommended)
 
 ## Command Line Arguments (All are optional)
 
