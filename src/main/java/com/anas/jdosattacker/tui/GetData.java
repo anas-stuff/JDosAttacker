@@ -95,8 +95,7 @@ public class GetData extends BasicWindow {
     private void init() throws IOException {
         panel = new Panel();
         panel.setLayoutManager(new GridLayout(2));
-
-        urlTextBox = new TextBox(Requester.getUrl());
+        urlTextBox = new TextBox();
         userAgentTextBox = new TextBox(Requester.getUserAgent());
         threadsTextBox = new TextBox();
         connectionTimeoutTextBox = new TextBox(Requester.getConnectTimeout() + "");
