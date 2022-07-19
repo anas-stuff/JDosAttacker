@@ -85,7 +85,7 @@ public class Requester implements Runnable {
     }
 
     public static String getUrl() {
-        return url;
+            return url;
     }
 
     public static void setUrl(final String url) throws FieldException {

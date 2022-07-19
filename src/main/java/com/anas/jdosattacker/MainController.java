@@ -20,6 +20,8 @@ public class MainController {
             } catch (IOException e) {
                 System.err.println("Error: " + e.getMessage());
                 System.exit(1);
+            } catch (FieldException e) {
+                throw new RuntimeException(e);
             }
         }
         this.threads = new ArrayList<>();

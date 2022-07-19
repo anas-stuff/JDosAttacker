@@ -24,7 +24,7 @@ public class GetData extends BasicWindow {
     private Screen screen;
     private MultiWindowTextGUI textGUI;
 
-    public GetData() throws IOException {
+    public GetData() throws IOException, FieldException {
         init();
         addButtonListener();
         addComponentsToPanel();
@@ -92,12 +92,12 @@ public class GetData extends BasicWindow {
         panel.addComponent(button);
     }
 
-    private void init() throws IOException {
+    private void init() throws IOException, FieldException {
         panel = new Panel();
         panel.setLayoutManager(new GridLayout(2));
         urlTextBox = new TextBox();
         userAgentTextBox = new TextBox(Requester.getUserAgent());
-        threadsTextBox = new TextBox();
+        urlTextBox = new TextBox(Requester.getUrl());
         connectionTimeoutTextBox = new TextBox(Requester.getConnectTimeout() + "");
         numberOfRequestsTextBox = new TextBox(Requester.getReqNumber() + "");
         requestMethodComboBox = new ComboBox<>();
