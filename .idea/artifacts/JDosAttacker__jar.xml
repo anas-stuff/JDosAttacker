@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JDosAttacker-:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JDosAttacker__jar</output-path>
+    <root id="archive" name="JDosAttacker-.jar">
+      <element id="module-output" name="JDosAttacker-" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/lanterna/lanterna/3.1.1/lanterna-3.1.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
