@@ -85,7 +85,7 @@ public class Requester implements Runnable {
     }
 
     public static String getUrl() {
-            return url;
+        return url == null ? "" : url;
     }
 
     public static void setUrl(final String url) throws FieldException {
@@ -106,9 +106,6 @@ public class Requester implements Runnable {
         Requester.userAgent = userAgent;
     }
 
-    public static String getRequestMethod() {
-        return requestMethod;
-    }
 
     public static void setRequestMethod(final String requestMethod) {
         if (requestMethod == null || requestMethod.isBlank()) {
