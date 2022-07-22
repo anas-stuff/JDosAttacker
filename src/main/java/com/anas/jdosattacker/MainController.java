@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainController {
-    public static final String version = "1.0.0";
+    public static final String version = "1.2.0";
     private static int threadsNumber = 0;
     private final ArrayList<Thread> threads;
 
