@@ -16,7 +16,7 @@ public class Main {
     private static final ArrayList<Thread> threads;
 
     static {
-        VERSION = "1.2.0";
+        VERSION = "1.3.0";
         threadsNumber = 0;
         threads = new ArrayList<>();
     }
