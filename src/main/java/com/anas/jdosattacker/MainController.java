@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * It's a controller class that creates threads and starts them
  */
 public class MainController {
-    public static final String version = "1.2.0";
+    public static final String VERSION = "1.2.0";
     private static int threadsNumber = 0;
     private final ArrayList<Thread> threads;
 
@@ -27,7 +27,7 @@ public class MainController {
             try {
                 // If true, start the tui and get the data from the user.
                 new GetData();
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 System.err.println("Error: " + e.getMessage());
                 System.exit(1);
             }
