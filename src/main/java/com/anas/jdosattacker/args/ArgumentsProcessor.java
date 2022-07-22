@@ -56,15 +56,15 @@ public class ArgumentsProcessor {
             if (commandLine.hasOption("threads"))
                 MainController.setThreadsNum(commandLine.getOptionValue("threads"));
             if (commandLine.hasOption("number"))
-                Requester.setReqNumber(Integer.parseInt(commandLine.getOptionValue("number")));
+                Requester.setReqNumber(commandLine.getOptionValue("number"));
             if (commandLine.hasOption("connectTimeout"))
-                Requester.setConnectTimeout(Integer.parseInt(commandLine.getOptionValue("connectTimeout")));
+                Requester.setConnectTimeout(commandLine.getOptionValue("connectTimeout"));
             if (commandLine.hasOption("useragent"))
                 Requester.setUserAgent(commandLine.getOptionValue("useragent"));
             if (commandLine.hasOption("requestMethod"))
                 Requester.setRequestMethod(commandLine.getOptionValue("requestMethod"));
 
-        } catch (final ParseException | FieldException | NumberFormatException e) {
+        } catch (final ParseException | FieldException e) {
             // If an error occurs, print the error message and a help message and exit.
             System.err.println("Error: " + e.getMessage());
             printHelp(1);

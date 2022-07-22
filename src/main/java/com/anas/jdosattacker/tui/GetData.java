@@ -50,27 +50,17 @@ public class GetData extends BasicWindow {
 
     private void addButtonListener() {
         button.addListener((button) -> {
-            // Check if all fields are filled
-            if (urlTextBox.getText().isBlank() ||
-                    userAgentTextBox.getText().isBlank() ||
-                    threadsTextBox.getText().isBlank() ||
-                    connectionTimeoutTextBox.getText().isBlank() ||
-                    numberOfRequestsTextBox.getText().isBlank()) {
-                // If not, show error message
-                MessageDialog.showMessageDialog(getTextGUI(), "Error", "Please fill all fields");
-            } else {
-                try {
-                    Requester.setReqNumber(numberOfRequestsTextBox.getText());
-                    MainController.setThreadsNum(threadsTextBox.getText());
-                    Requester.setConnectTimeout(connectionTimeoutTextBox.getText());
-                    Requester.setUrl(urlTextBox.getText());
-                    Requester.setUserAgent(userAgentTextBox.getText());
-                    Requester.setRequestMethod(requestMethodComboBox.getSelectedItem());
-                    // If yes, close window and start attack
-                    close();
-                } catch (FieldException e) {
-                    MessageDialog.showMessageDialog(getTextGUI(), "Error", e.getMessage());
-                }
+            try {
+                Requester.setReqNumber(numberOfRequestsTextBox.getText());
+                MainController.setThreadsNum(threadsTextBox.getText());
+                Requester.setConnectTimeout(connectionTimeoutTextBox.getText());
+                Requester.setUrl(urlTextBox.getText());
+                Requester.setUserAgent(userAgentTextBox.getText());
+                Requester.setRequestMethod(requestMethodComboBox.getSelectedItem());
+                // If yes, close window and start attack
+                close();
+            } catch (FieldException e) {
+                MessageDialog.showMessageDialog(getTextGUI(), "Error", e.getMessage());
             }
         });
     }
