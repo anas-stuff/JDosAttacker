@@ -1,7 +1,7 @@
 package com.anas.jdosattacker.tui;
 
 import com.anas.jdosattacker.FieldException;
-import com.anas.jdosattacker.MainController;
+import com.anas.jdosattacker.Main;
 import com.anas.jdosattacker.request.Requester;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -64,7 +64,7 @@ public class GetData extends BasicWindow {
         button.addListener(b -> {
             try {
                 Requester.setReqNumber(numberOfRequestsTextBox.getText());
-                MainController.setThreadsNum(threadsTextBox.getText());
+                Main.setThreadsNum(threadsTextBox.getText());
                 Requester.setConnectTimeout(connectionTimeoutTextBox.getText());
                 Requester.setUrl(urlTextBox.getText());
                 Requester.setUserAgent(userAgentTextBox.getText());

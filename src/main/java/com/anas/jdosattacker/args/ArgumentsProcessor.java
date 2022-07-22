@@ -1,7 +1,7 @@
 package com.anas.jdosattacker.args;
 
 import com.anas.jdosattacker.FieldException;
-import com.anas.jdosattacker.MainController;
+import com.anas.jdosattacker.Main;
 import com.anas.jdosattacker.request.Requester;
 import org.apache.commons.cli.*;
 
@@ -54,7 +54,7 @@ public class ArgumentsProcessor {
             if (commandLine.hasOption("url"))
                 Requester.setUrl(commandLine.getOptionValue("url"));
             if (commandLine.hasOption("threads"))
-                MainController.setThreadsNum(commandLine.getOptionValue("threads"));
+                Main.setThreadsNum(commandLine.getOptionValue("threads"));
             if (commandLine.hasOption("number"))
                 Requester.setReqNumber(commandLine.getOptionValue("number"));
             if (commandLine.hasOption("connectTimeout"))
@@ -75,7 +75,7 @@ public class ArgumentsProcessor {
      * If the user types in the command line argument -v, this method will be called.
      */
     private void printVersion() {
-        System.out.println("Version: " + MainController.VERSION);
+        System.out.println("Version: " + Main.VERSION);
         System.exit(0);
     }
 
