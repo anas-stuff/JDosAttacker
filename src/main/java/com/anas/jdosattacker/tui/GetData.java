@@ -12,6 +12,9 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 
 import java.io.IOException;
 
+/**
+ * It creates a window that asks the user for the data needed to start the attack
+ */
 public class GetData extends BasicWindow {
     private Panel panel;
     private TextBox urlTextBox,
@@ -24,13 +27,17 @@ public class GetData extends BasicWindow {
     private Screen screen;
     private MultiWindowTextGUI textGUI;
 
+    /**
+     * The constructor.
+     * @throws IOException if there is an error in creating the window.
+     */
     public GetData() throws IOException {
         init();
         addButtonListener();
         addComponentsToPanel();
         setupCombobox();
-        setupComponentsPreferredSize();
-        // add panel to window
+        urlTextBox.setPreferredSize(new TerminalSize(60, 1));
+        // add the panel to the window
         super.setComponent(panel);
         screen.doResizeIfNecessary();
         screen.startScreen();
@@ -39,42 +46,40 @@ public class GetData extends BasicWindow {
         screen.stopScreen();
     }
 
-    private void setupComponentsPreferredSize() {
-        urlTextBox.setPreferredSize(new TerminalSize(60, 1));
-    }
-
+    /**
+     * This function adds two items to the requestMethodComboBox.
+     */
     private void setupCombobox() {
         requestMethodComboBox.addItem("GET");
         requestMethodComboBox.addItem("POST");
     }
 
+    /**
+     * This function adds the listener to the button.
+     *
+     * The listener gets the data from the text boxes and try to set the data to the requester.
+     * If there is an error in the data, it shows a message dialog.
+     */
     private void addButtonListener() {
-        button.addListener((button) -> {
-            // Check if all fields are filled
-            if (urlTextBox.getText().isBlank() ||
-                    userAgentTextBox.getText().isBlank() ||
-                    threadsTextBox.getText().isBlank() ||
-                    connectionTimeoutTextBox.getText().isBlank() ||
-                    numberOfRequestsTextBox.getText().isBlank()) {
-                // If not, show error message
-                MessageDialog.showMessageDialog(getTextGUI(), "Error", "Please fill all fields");
-            } else {
-                try {
-                    Requester.setReqNumber(numberOfRequestsTextBox.getText());
-                    MainController.setThreadsNum(threadsTextBox.getText());
-                    Requester.setConnectTimeout(connectionTimeoutTextBox.getText());
-                    Requester.setUrl(urlTextBox.getText());
-                    Requester.setUserAgent(userAgentTextBox.getText());
-                    Requester.setRequestMethod(requestMethodComboBox.getSelectedItem());
-                    // If yes, close window and start attack
-                    close();
-                } catch (FieldException e) {
-                    MessageDialog.showMessageDialog(getTextGUI(), "Error", e.getMessage());
-                }
+        button.addListener(b -> {
+            try {
+                Requester.setReqNumber(numberOfRequestsTextBox.getText());
+                MainController.setThreadsNum(threadsTextBox.getText());
+                Requester.setConnectTimeout(connectionTimeoutTextBox.getText());
+                Requester.setUrl(urlTextBox.getText());
+                Requester.setUserAgent(userAgentTextBox.getText());
+                Requester.setRequestMethod(requestMethodComboBox.getSelectedItem());
+                // close window and start attack
+                super.close();
+            } catch (final FieldException e) {
+                MessageDialog.showMessageDialog(getTextGUI(), "Error", e.getMessage());
             }
         });
     }
 
+    /**
+     * It adds all the components to the panel
+     */
     private void addComponentsToPanel() {
         panel.addComponent(new Label("URL: "));
         panel.addComponent(urlTextBox);
@@ -92,20 +97,27 @@ public class GetData extends BasicWindow {
         panel.addComponent(button);
     }
 
+    /**
+     * This function initializes the window.
+     * @throws IOException if there is an error in creating the screen.
+     */
     private void init() throws IOException {
+        screen = new DefaultTerminalFactory().createScreen(); // create screen
+        textGUI = new MultiWindowTextGUI(screen, new DefaultWindowManager(),
+                new EmptySpace(TextColor.ANSI.BLUE)); // create textGUI
+
+        // create the panel and set the layout
         panel = new Panel();
         panel.setLayoutManager(new GridLayout(2));
 
+        // Initialize the text boxes with the default values or the arguments passed to the program.
         urlTextBox = new TextBox(Requester.getUrl());
         userAgentTextBox = new TextBox(Requester.getUserAgent());
         threadsTextBox = new TextBox();
         connectionTimeoutTextBox = new TextBox(Requester.getConnectTimeout() + "");
         numberOfRequestsTextBox = new TextBox(Requester.getReqNumber() + "");
+        // Initialize the combobox and the start button.
         requestMethodComboBox = new ComboBox<>();
         button = new Button("Start");
-
-        screen = new DefaultTerminalFactory().createScreen();
-        textGUI = new MultiWindowTextGUI(screen, new DefaultWindowManager(),
-                new EmptySpace(TextColor.ANSI.BLUE));
     }
 }
